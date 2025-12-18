@@ -73,18 +73,18 @@ export default function Portfolio() {
   ];
 
   const projects = [
-    {
-      name: "Code Cutter - Refactoring Tool",
-      period: "Jan 2024 – Mar 2024",
-      tech: "Python, AST Parsing, Static Analysis",
-      highlights: [
-        "Automated detection of code smells using AST parsing and Jaccard similarity",
-        "Reduced manual cleanup by 60% and code review time by 20%",
-        "Refactored 95% of redundant code through static analysis"
-      ]
-    }
-  ];
-
+  {
+    name: "Code Cutter - Refactoring Tool",
+    period: "Jan 2024 – Mar 2024",
+    tech: "Python, AST Parsing, Static Analysis",
+    github: "https://github.com/deepanshu2001/refactoring_tool",
+    highlights: [
+      "Automated detection of code smells using AST parsing and Jaccard similarity",
+      "Reduced code review time by 20% by automatically identifying and refactoring 95% of duplicate functions and implementing GUI-based visualization with PySimpleGUI for code smell analysis",
+      "Enhanced parser robustness by redesigning AST generation to handle nested scopes and recursive logic, informed by research on ANTLR, Esprima, and Python’s scoping rules."
+    ]
+  }
+];
   const skills = {
     "Languages": ["Java", "JavaScript", "Python", "C++", "TypeScript", "Rust", "Go", "C#"],
     "Frontend": ["React.js", "Redux", "Tailwind CSS", "Mantine", "HTML", "CSS", "jQuery"],
@@ -222,20 +222,35 @@ export default function Portfolio() {
             <h2 style={{ fontSize: '2.5rem', fontWeight: '700', margin: 0 }}>Projects</h2>
           </div>
           {projects.map((project, idx) => (
-            <div key={idx} style={{ background: 'white', padding: '2rem', borderRadius: '12px', boxShadow: '0 4px 20px rgba(0,0,0,0.08)', marginBottom: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
-                <div>
-                  <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem' }}>{project.name}</h3>
-                  <p style={{ color: '#667eea', fontWeight: '600', fontSize: '0.95rem' }}>{project.tech}</p>
-                </div>
-                <p style={{ fontWeight: '600', color: '#555' }}>{project.period}</p>
-              </div>
-              <ul style={{ marginLeft: '1.5rem', lineHeight: '1.8' }}>
-                {project.highlights.map((highlight, hidx) => (
-                  <li key={hidx} style={{ color: '#444', fontSize: '0.95rem' }}>{highlight}</li>
-                ))}
-              </ul>
-            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
+  <div>
+    <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem' }}>
+      {project.name}
+    </h3>
+    <p style={{ color: '#667eea', fontWeight: '600', fontSize: '0.95rem' }}>
+      {project.tech}
+    </p>
+  </div>
+
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+    <p style={{ fontWeight: '600', color: '#555', margin: 0 }}>
+      {project.period}
+    </p>
+
+    {project.github && (
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: '#667eea' }}
+        title="View on GitHub"
+      >
+        <Github size={20} />
+      </a>
+    )}
+  </div>
+</div>
+
           ))}
         </section>
 
@@ -274,38 +289,34 @@ export default function Portfolio() {
               <p style={{ color: '#666', fontSize: '1rem' }}>download my complete resume</p>
             </div>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-              <button
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.href = '#'; // Replace with actual resume file path
-                  link.download = 'Deepanshu_Sharma_Resume.pdf';
-                  link.click();
-                }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  background: 'white',
-                  color: '#667eea',
-                  border: '2px solid #667eea',
-                  padding: '1rem 2rem',
-                  borderRadius: '8px',
-                  fontSize: '1rem',
-                  fontWeight: '600',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.background = '#667eea';
-                  e.currentTarget.style.color = 'white';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.background = 'white';
-                  e.currentTarget.style.color = '#667eea';
-                }}
-              >
-                <Download size={20} /> Download PDF
-              </button>
+              <a href="/Portfolio/Deepanshu_sharma_resume.pdf"
+  download="Deepanshu_Sharma_Resume.pdf"
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    background: 'white',
+    color: '#667eea',
+    border: '2px solid #667eea',
+    padding: '1rem 2rem',
+    borderRadius: '8px',
+    fontSize: '1rem',
+    fontWeight: '600',
+    cursor: 'pointer',
+    transition: 'all 0.3s',
+    textDecoration: 'none'
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.background = '#667eea';
+    e.currentTarget.style.color = 'white';
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.background = 'white';
+    e.currentTarget.style.color = '#667eea';
+  }}
+>
+  <Download size={20} /> Download PDF
+</a>
             </div>
            
           </div>
