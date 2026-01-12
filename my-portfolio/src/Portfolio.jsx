@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail,ExternalLink , Phone, Linkedin, Github, ExternalLink, Code, Briefcase, GraduationCap, Award, ChevronDown, FileText, Download, Eye } from 'lucide-react';
+import { Mail , Phone, Linkedin, Github, ExternalLink, Code, Briefcase, GraduationCap, Award, ChevronDown, FileText, Download, Eye } from 'lucide-react';
 
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState('about');
