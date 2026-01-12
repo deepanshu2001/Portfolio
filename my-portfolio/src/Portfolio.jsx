@@ -83,6 +83,20 @@ export default function Portfolio() {
       "Reduced code review time by 20% by automatically identifying and refactoring 95% of duplicate functions and implementing GUI-based visualization with PySimpleGUI for code smell analysis",
       "Enhanced parser robustness by redesigning AST generation to handle nested scopes and recursive logic, informed by research on ANTLR, Esprima, and Python’s scoping rules."
     ]
+  },
+  {
+    name:'AlgoAce- AI-Powered Mock Interview Platform',
+    period:'Dec 2024 – Present',
+    tech:'React.js, SpringBoot, POSTGRESQL, OpenAI API',
+    github:'https://github.com/deepanshu2001/AI-Interview-APP',
+    livelink:"https://curious-caramel-ffc38a.netlify.app/",
+    highlight:[
+      "Architected a full-stack AI interview platform using Spring Boot and React, integrating LLaMA 3.1, Claude 3.5, and OpenAI Whisper to automate DSA code reviews and behavioral interviews, achieving 99% structured JSON response reliability.",
+      "Implemented an intelligent code evaluation engine with Spring AI, providing real-time feedback on correctness, time complexity, and space complexity, reducing manual review effort by ~95%.",
+      "Built an automated soft-skills assessment pipeline using Whisper-based audio transcription and multi-criteria LLM scoring to evaluate communication, leadership, and conflict-resolution skills.",
+      "Designed a secure backend system with JWT-based authentication, Spring Security custom filters, and PostgreSQL, supporting encrypted user sessions, multipart interview uploads, and persistent interview history."
+    ]
+
   }
 ];
   const skills = {
@@ -222,36 +236,77 @@ export default function Portfolio() {
             <h2 style={{ fontSize: '2.5rem', fontWeight: '700', margin: 0 }}>Projects</h2>
           </div>
           {projects.map((project, idx) => (
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start', marginBottom: '1rem', flexWrap: 'wrap', gap: '1rem' }}>
-  <div>
-    <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem' }}>
-      {project.name}
-    </h3>
-    <p style={{ color: '#667eea', fontWeight: '600', fontSize: '0.95rem' }}>
-      {project.tech}
-    </p>
+  <div
+    key={idx}
+    style={{
+      background: 'white',
+      padding: '2rem',
+      borderRadius: '12px',
+      boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+      marginBottom: '2rem'
+    }}
+  >
+    {/* Project Header */}
+    <div
+      style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'start',
+        marginBottom: '1rem',
+        flexWrap: 'wrap',
+        gap: '1rem'
+      }}
+    >
+      <div>
+        <h3 style={{ fontSize: '1.5rem', fontWeight: '700', marginBottom: '0.5rem' }}>
+          {project.name}
+        </h3>
+        <p style={{ color: '#667eea', fontWeight: '600', fontSize: '0.95rem' }}>
+          {project.tech}
+        </p>
+      </div>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <p style={{ fontWeight: '600', color: '#555', margin: 0 }}>
+          {project.period}
+        </p>
+
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#667eea' }}
+            title="View on GitHub"
+          >
+            <Github size={20} />
+          </a>
+        )}
+        {project.livelink && (
+          <a
+            href={project.livelink}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: '#667eea' }}
+            title="View Live Project"
+          >
+            <Github size={20} />
+          </a>
+        )}
+      </div>
+    </div>
+
+    {/* ✅ Project Highlights */}
+    <ul style={{ marginLeft: '1.5rem', lineHeight: '1.8' }}>
+      {project.highlights.map((highlight, hidx) => (
+        <li key={hidx} style={{ color: '#444', fontSize: '0.95rem' }}>
+          {highlight}
+        </li>
+      ))}
+    </ul>
   </div>
+))}
 
-  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-    <p style={{ fontWeight: '600', color: '#555', margin: 0 }}>
-      {project.period}
-    </p>
-
-    {project.github && (
-      <a
-        href={project.github}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: '#667eea' }}
-        title="View on GitHub"
-      >
-        <Github size={20} />
-      </a>
-    )}
-  </div>
-</div>
-
-          ))}
         </section>
 
         {/* Skills */}
