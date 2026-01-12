@@ -90,7 +90,7 @@ export default function Portfolio() {
     tech:'React.js, SpringBoot, POSTGRESQL, OpenAI API',
     github:'https://github.com/deepanshu2001/AI-Interview-APP',
     livelink:"https://curious-caramel-ffc38a.netlify.app/",
-    highlight:[
+    highlights:[
       "Architected a full-stack AI interview platform using Spring Boot and React, integrating LLaMA 3.1, Claude 3.5, and OpenAI Whisper to automate DSA code reviews and behavioral interviews, achieving 99% structured JSON response reliability.",
       "Implemented an intelligent code evaluation engine with Spring AI, providing real-time feedback on correctness, time complexity, and space complexity, reducing manual review effort by ~95%.",
       "Built an automated soft-skills assessment pipeline using Whisper-based audio transcription and multi-criteria LLM scoring to evaluate communication, leadership, and conflict-resolution skills.",
